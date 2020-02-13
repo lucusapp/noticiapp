@@ -12,6 +12,7 @@ import { ComponentsModule } from 'src/app/components/components.module';
     IonicModule,
     CommonModule,
     FormsModule,
+    ComponentsModule,
     RouterModule.forChild([{ path: '', component: Tab1Page }])
   ],
   declarations: [Tab1Page]
