@@ -13,12 +13,12 @@ const headers = new HttpHeaders({
 })
 
 
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class NoticiasService {
+
+  headlinesPage = 0;
 
   constructor(private http:HttpClient) { }
 
@@ -28,7 +28,9 @@ export class NoticiasService {
   }
 
   getTopHeadlines(){
-    return this.ejecutarQuery<RespuestaTopHeadlines>(`/top-headlines?country=us`);
+
+    this.headlinesPage++;
+    return this.ejecutarQuery<RespuestaTopHeadlines>(`/top-headlines?country=us&page=${this.headlinesPage}`);
     // return this.http.get<RespuestaTopHeadlines>(`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=564d10ec515040ac82d1d4da79b77291`)
     
   }

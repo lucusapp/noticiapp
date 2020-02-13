@@ -19,7 +19,7 @@ export class Tab2Page implements OnInit{
   constructor(private newServ:NoticiasService) {}
 
   ngOnInit(){
-   this.segment.value=this.categorias[0]
+  //  this.segment.value=this.categorias[0]
    this.cargarNoticias(this.categorias[0])    
   }    
   
