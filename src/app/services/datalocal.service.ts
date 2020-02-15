@@ -28,8 +28,14 @@ export class DatalocalService {
   
   const favoritos = await this.storage.get('favoritos')
   
+  console.log('async await', favoritos)
   if(favoritos){
     this.noticias=favoritos             ;
     } 
+  }
+
+  borrarNoticia(noticia:Article){
+    this.noticias = this.noticias.filter(noti=>noti.title !== noticia.title)
+    this.storage.set('favoritos', this.noticias)
   }
 }
